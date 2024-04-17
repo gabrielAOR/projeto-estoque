@@ -2,10 +2,12 @@ import RegisterFormField from "../RegisterFormFields/RegisterFormField"
 import './RegisterForm.css'
 import React, {useState} from "react";
 
+
 const RegisterForm = (props) => {
+    
     const [values,setValues] = useState({
         name:"",
-        birthday:"",
+        age:"",
         cpf:"",
         email:"",
         password:"",
@@ -24,7 +26,7 @@ const RegisterForm = (props) => {
         },
         {
             id:2,
-            name: "birthday",
+            name: "age",
             placeholder: "Insira sua idade",
             errorMessage: "",
             type: "date",
@@ -42,10 +44,11 @@ const RegisterForm = (props) => {
         },
         {
             id:4,
-            name: "Email",
+            name: "email",
             placeholder: "Insira o email",
             errorMessage: "Insira um e-mail valido",
-            type: "email",
+            type: "text",
+            pattern: "^[a-z0-9.]{1,64}@[a-z0-9.]{1,255}",
             required: true
         },
         {
@@ -73,10 +76,29 @@ const RegisterForm = (props) => {
         e.preventDefault()
         const formData = new FormData(e.target);
         const payload = Object.fromEntries(formData);
+        payload.age = getAge(payload.age)
+        fetch('http://localhost:8080/usuarios',{
+            method: 'POST',
+            headers: {"Content-Type":  "application/json"},
+            body: JSON.stringify(payload)
+        }).then(() =>{
+            console.log("new User added")
+        })
         console.log(payload);
     }
 
-
+   const getAge = (dob) => {
+        var today = new Date();
+        var birthDate = new Date(dob);  
+        var age_now = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) 
+        {
+            age_now--;
+        }
+        console.log(age_now);
+        return age_now;
+      }
 
     const onChange = (e) =>{
         setValues({...values, [e.target.name]: e.target.value});
