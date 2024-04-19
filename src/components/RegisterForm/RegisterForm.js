@@ -6,7 +6,7 @@ import React, {useState} from "react";
 const RegisterForm = (props) => {
     
     const [values,setValues] = useState({
-        name:"",
+        username:"",
         age:"",
         cpf:"",
         email:"",
@@ -17,11 +17,11 @@ const RegisterForm = (props) => {
     const inputs = [
         {
             id:1,
-            name: "name",
+            name: "username",
             placeholder: "Insira seu nome",
             errorMessage: "O nome deve ter 3-16 caracteres e não deve conter caracteres especiais",
             type: "text",
-            pattern:"[A-Za-z]{3,16}$",
+            pattern:"[a-zA-ZÀ-ú]{3,16}$",
             required: true
         },
         {
