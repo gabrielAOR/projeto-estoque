@@ -1,9 +1,9 @@
 .navBar{
-    padding: 15px 0;
+    padding: 10px 0;
     display: flex;
-    align-self: flex-end;
+    align-items: center;
     width: 100%;
-    background-color: black;
+    background-color: #020024;
     margin-bottom: 30px;
 }
 
@@ -21,4 +21,9 @@
 .navBar a:hover{
     color: #6082B6;
     transition: 0.3s;
+}
+
+.navBar img{
+    width: 32px;
+    margin-left: 10px;
 }
