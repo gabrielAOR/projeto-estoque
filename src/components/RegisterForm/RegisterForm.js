@@ -1,3 +1,4 @@
+import toast from "react-hot-toast";
 import RegisterFormField from "../RegisterFormFields/RegisterFormField"
 import './RegisterForm.css'
 import React, {useState} from "react";
@@ -81,13 +82,18 @@ const RegisterForm = (props) => {
             method: 'POST',
             headers: {"Content-Type":  "application/json"},
             body: JSON.stringify(payload)
-        }).then(() =>{
+        }).then((response) =>{
+            if(!response.ok){toast.error("Usuario não foi registrado")}
+            if(response.ok){toast.success("Usario registrado")}
             console.log("new User added")
         })
         console.log(payload);
     }
+    const onChange = (e) =>{
+        setValues({...values, [e.target.name]: e.target.value});
+    }
 
-   const getAge = (dob) => {
+    function getAge(dob){
         var today = new Date();
         var birthDate = new Date(dob);  
         var age_now = today.getFullYear() - birthDate.getFullYear();
@@ -98,10 +104,6 @@ const RegisterForm = (props) => {
         }
         console.log(age_now);
         return age_now;
-      }
-
-    const onChange = (e) =>{
-        setValues({...values, [e.target.name]: e.target.value});
     }
 
     return(
@@ -113,7 +115,6 @@ const RegisterForm = (props) => {
                 ))}
                 <button type="submit">Registrar</button>
             </form>
-            
         </div>
     )
 }

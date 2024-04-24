@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import './NavBar.css';
-import logo from "../../assets/cuckoo-logo.png"
+import logo from "../../assets/icons/cuckoo-logo.png"
 
 const NavBar = (props) => {
 
