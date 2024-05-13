@@ -1,7 +1,11 @@
 .user-table{
     border-collapse: collapse;
     background-color: white;
-    min-width: 500px;
+    min-width: 300px;
+}
+.content-container{
+    display: flex;
+    flex-direction: column;
 }
 
 .user-table td, th{
@@ -20,10 +24,11 @@
 .user-table tr:nth-child(even){background-color: #f2f2f2;}
 .user-table tr:hover {background-color: #ddd;}
 
+
+
 .search-bar{
     padding: 5px;
     margin-bottom: 15px;
-    width: 490px;
     border-radius: 10px;
     border: none;
 }

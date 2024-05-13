@@ -3,16 +3,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 35px;
+    padding: 25px;
     border-radius: 10px;
-    max-width: 500px;
     background-color: #020024;
+    width: 400px;
 }
 
 .container-form h2{
     color: white;
 }
 
+.form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+}
 
 .form button{
     font-family: Poppins;
@@ -22,6 +29,7 @@
     border-radius: 10px;
     border: none;
     outline: none;
+    width: 100%;
 
 }
 
@@ -36,3 +44,9 @@
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
+
+@media only screen and (max-width: 500px) {
+    .container-form{
+      width: 300px;
+    }
+  }

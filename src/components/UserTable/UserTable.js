@@ -14,12 +14,12 @@ const UserTable = (props) => {
       }, []);
 
     return(
-        <div>
+        <div className='content-container'>
           <input className='search-bar' type="text" placeholder='Busque o nome' onChange={(e) => setSearch(e.target.value)}/>
           <table className='user-table'>
             <tr>
-              <th>Name</th>
-              <th>Age</th>
+              <th>Nome</th>
+              <th>Idade</th>
               <th>Email</th>
             </tr>
           {users ? users.filter((user) =>{

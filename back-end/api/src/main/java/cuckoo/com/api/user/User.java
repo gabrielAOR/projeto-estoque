@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Date;
 import java.util.UUID;
@@ -42,9 +44,6 @@ public class User {
         if(data.age() != 0){
             this.age = data.age();
         }
-        if(data.name() != null){
-            this.username = data.name();
-        }
-
     }
+
 }

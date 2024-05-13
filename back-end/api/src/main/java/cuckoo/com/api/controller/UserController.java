@@ -9,6 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("usuarios")
@@ -35,5 +36,9 @@ public class UserController {
     public void updateUser(@RequestBody @Valid UserUpdateData data){
         var user = repository.getReferenceById(data.id());
         user.UpdateRegister(data);
+    }
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable UUID id){
+        repository.deleteById(id);
     }
 }
